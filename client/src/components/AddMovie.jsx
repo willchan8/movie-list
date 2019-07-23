@@ -13,24 +13,28 @@ class AddMovie extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ addNewMovie: e.target.value });
+    let text = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+    this.setState({ addNewMovie: text });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleAdd(this.state.addNewMovie);
+    this.setState({addNewMovie: ''});
   }
   
   render() {
     return (
-      <form className="AddMovie" onSubmit={ () => this.props.handleAdd(event, this.state.addNewMovie)}>
-        <label>
-          Add Movie:
-          &nbsp;
-          <input type="text" value={this.state.value} placeholder="Add Movie..." onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="Add">
+        <form className="AddMovie" onSubmit={this.handleSubmit}>
+          <label>
+            Add Movie:
+            &nbsp;
+            <input type="text" value={this.state.addNewMovie} placeholder="Add Movie Title Here" onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Add" />
+        </form>
+      </div>
     );
   }
 }

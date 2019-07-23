@@ -12,12 +12,14 @@ class SearchBar extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ search: e.target.value });
+    let text = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+    this.setState({ search: text });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSearch(this.state.search);
+    this.setState({search: ''})
   }
 
   render() {
@@ -29,7 +31,7 @@ class SearchBar extends React.Component {
             &nbsp;
             <input type="text" name="search" value={ this.state.search } placeholder="Search Movie..." onChange={ this.handleChange } />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Go!" />
         </form>
       </div>
     )

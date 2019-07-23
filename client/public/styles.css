@@ -6,6 +6,10 @@ body {
   padding-bottom: 1em;
 }
 
+.MovieList {
+  width: 600px;
+}
+
 .MovieListEntry {
   border-color: #999999;
   border-style: solid;
@@ -15,4 +19,8 @@ body {
 
 .Search {
   padding-bottom: 1em;
+}
+
+.watchedButton {
+  float: right
 }
